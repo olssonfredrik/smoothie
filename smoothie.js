@@ -945,6 +945,13 @@
           }
         }
 
+        if (timeSeries.options.name) {
+          if ((i == dataSet.length - 1 && dataSet[i][1] > 0) || (i < dataSet.length-1 && dataSet[i][1] >= 1.0 && dataSet[i+1][1] < 1.0)) {
+            context.fillStyle = chartOptions.labels.fillStyle;
+            context.fillText(timeSeries.options.name, Math.max(2, x), dimensions.height / 2);
+          }
+        }
+
         lastX = x; lastY = y;
       }
 
