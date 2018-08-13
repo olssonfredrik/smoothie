@@ -749,7 +749,7 @@
   };
 
   SmoothieChart.prototype.render = function(canvas, time) {
-    var nowMillis = Date.now();
+    var nowMillis = this.options.dateNow ? this.options.dateNow() : Date.now();
 
     // Respect any frame rate limit.
     if (this.options.limitFPS > 0 && nowMillis - this.lastRenderTimeMillis < (1000/this.options.limitFPS))
